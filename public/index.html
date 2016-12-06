@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sneaker Shop</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Jaldi:400|Open+Sans:400,600" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+  <link rel="stylesheet" type="text/css" href="clearfix.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <header class="header clearfix">
+    <img class="logo" src="../images/logo.jpg" alt="Sneaker Shop">
+    <nav class="primary-navigation navigation">
+      <ul>
+        <li><a href="#" title="Men">Men</a></li>
+        <li><a href="#" title="Women" class="active">Women</a></li>
+        <li><a href="#" title="Boys">Boys</a></li>
+        <li><a href="#" title="Girls">Girls</a></li>
+        <li><a href="#" title="Customize">Customize</a></li>
+      </ul>
+    </nav>
+    <nav class="secondary-navigation navigation">
+      <ul>
+        <li><a href="#" title="Help">Help</a></li>
+        <li><a href="#" title="My Account">My Account</a></li>
+        <li><a href="#" title="Shopping Cart">
+          <img alt="Shopping Cart" class="cart" src="../images/cart.jpg">
+          Shopping Cart (<span class="js-cart-count">0</span>)
+        </a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="product-show" class="animate bounceIn"></div>
+
+
+
+
+  <section class="more-products">
+    <h2>Sneaker Shop</h2>
+    <div class="container filters">
+      <select class="" name="brand" id="brand">
+        <option value="">Filter by Brand</option>
+        <option value="UA">Under Armour</option>
+        <option value="Vans">Vans</option>
+        <option value="Saucony">Saucony</option>
+        <option value="Nike">Nike</option>
+        <option value="Adidas">Adidas</option>
+      </select>
+      <select class="" name="sport" id="sport">
+        <option value="">Filter by Sport</option>
+        <option value="running">Running</option>
+        <option value="baseball">BaseBall</option>
+        <option value="basketball">BasketBall</option>
+      </select>
+
+      <input type="textfield" name="name" id="name" placeholder="Search by Name"/>
+    </div>
+
+    <div class="container more-products clearfix" id="product-list">
+      ...
+    </div>
+  </section>
+
+
+
+  <footer class="footer clearfix">
+    <img alt="Sneaker Shop" class="logo" src="../images/logo.jpg">
+    <nav class="navigation">
+      <ul>
+        <li><a href="#" title="Men">Men</a></li>
+        <li><a href="#" title="Women" class="active">Women</a></li>
+        <li><a href="#" title="Boys">Boys</a></li>
+        <li><a href="#" title="Girls">Girls</a></li>
+        <li><a href="#" title="Customize">Customize</a></li>
+      </ul>
+    </nav>
+    <div class="legal">
+      <a href="#" title="Shipping">Shipping</a> |
+      <a href="#" title="Terms & Conditions">Terms &amp; Conditions</a> |
+      &copy; Copyright 2017. Sneaker Shop, LLC.
+    </div>
+  </footer>
+
+
+  <script type="text/html" id="productDetailTemplate">
+    <section class="product-spotlight">
+      <div class="container clearfix">
+        <div class="product-image">
+          <a class="back-link" href="#">&#8592; Back To All Shoes</a>
+          <img class="image" src="<%= image %>">
+        </div>
+        <div class="product-info">
+          <h1><%= brand %> <%= name %> <span class="smallbold"><%= sport %></span></h1>
+          <p class="info"><%= description %> </p>
+          <div class="price"><sup>$</sup><%= price %></div>
+          <a class="button" href="#" title="Buy Now!">Buy Now!</a>
+        </div>
+       </div>
+    </section>
+
+    <section class="product-detail">
+      <div class="container">
+        <nav class="navigation">
+          <ul>
+            <li><a href="#" class="active" title="Product Details">Product Details</a></li>
+            <li><a href="#" class="" title="Size & Fit">Size &amp; Fit</a></li>
+            <li class="reviews"><a href="#" class="" title="Reviews">Reviews &starf;&starf;&starf;&starf;&star;</a></li>
+          </ul>
+        </nav>
+        <div class="content">
+          <h2>Exciting Topic</h2>
+          <p>Content here</p>
+          <h3>Exciting Topic</h3>
+          <p>Content here</p>
+        </div>
+        <div class="content">
+          <h2>Find Your Shoe Size &amp; Fit</h2>
+          <p>Content here</p>
+        </div>
+        <div class="content">
+          <h2>What Our Customers Are Saying!</h2>
+          <p>Don't take our world for it! Read what our customers have been saying about this product. We guarantee you won't be disappointed in your purchase.</p>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <script type="text/html" id="productListTemplate">
+    <a data-role="visitProduct" data-product-id="<%= id %>" class="product clearfix animated bounceIn" href="#" title="<%= name %>">
+      <img alt="<%= name %>" class="image" src="<%= image %>">
+      <h3><%= name  %><span class="smallbold"><%= brand %> - <%= sport %></span></h3>
+      <div class="price"><sup>$</sup><%= price %></div>
+    </a>
+  </script>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
