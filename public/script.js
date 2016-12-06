@@ -22,7 +22,10 @@ var fetchProduct = function(id){
     $("#product-show").html( theHtml )
     $("#product-show").show();
 
-    $("a.back-link").on("click", fetchProducts)
+    $("a.back-link").on("click", function(event) {
+      event.preventDefault();
+      fetchProducts()
+    });
 
   })
 }
