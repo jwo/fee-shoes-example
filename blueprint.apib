@@ -1,0 +1,106 @@
+FORMAT: 1A
+
+# Shoe Shop Foundations API
+
+Shoe Shop is a JSON API designed to be used in The Iron Yard Back-End
+Foundations course.
+
+## Authentication
+
+No authentication is required for this API.
+
+## Data Formats
+
+Only JSON will be returned for the API. It should not have to be requested, it should be assumed as the format.
+
+## CORS
+
+CORS shoud be enabled for a JavaScript applications to pull information using standard jQuery on a possibly different host. This is usually done by adding the following header to the response: `Access-Control-Allow-Origin: *`
+
+# Group Products
+## Product Listing [/api/products{?brand}{?sport}{?name}]
+
++ Attributes (array[Product])
++ Parameters
+  + brand: "nike" (string, optional) - The brand to filter results by
+  + sport: "baseball" (string, optional) - The sport to filter results by
+  + name: "Trout" (string, optional) - The name to filter results by
+
+### List Products [GET]
+
+
++ Response 200 (application/json)
+  + Headers
+
+              Access-Control-Allow-Origin: *
+
+  + Body
+
+              {
+              	"products": [{
+              		"id": 1,
+              		"name": "UA Jet Mid ",
+              		"brand": "UA",
+              		"description": "Perforated leather and synthetic overlays provide stability.\r\nMid-top silhouette.\r\nTraditional lace-up closure.\r\nPadded mesh collar and tongue for a great feel against foot.\r\nMolded OrthoLite® sockliner provides extra cushion while keeping your foot locked in.\r\nMolded full-length EVA foam midsole.",
+              		"sport": "basketball",
+              		"review": "4.0",
+              		"image": "http://a3.zassets.com/images/z/3/7/7/5/6/6/3775661-p-MULTIVIEW.jpg",
+              		"price": "74.99"
+              	}, {
+              		"id": 2,
+              		"name": "Classic Slip-On™",
+              		"brand": "Vans",
+              		"description": "The shoe that started it all... the iconic Vans™ Classic Slip-On.\r\nA slip-on deck shoe with Vans' classic Off the Wall outsole.\r\nDurable canvas uppers (unless noted in color name) for long lasting wear.\r\nPadded collar and footbed for supreme comfort, fit, and superior shock absorption.\r\nCotton drill lining for excellent breathability and extra comfort.\r\nDie-cut EVA insert for added support.\r\nVulcanized sole attachment.\r\nGum rubber outsole with Vans' signature waffle tread.",
+              		"sport": "skateboarding",
+              		"review": "5.0",
+              		"image": "http://a1.zassets.com/images/z/2/7/5/0/9/5/2750955-p-MULTIVIEW.jpg",
+              		"price": "60.0"
+              	}]
+              }
+
+
+## Product Detail [/api/products/{id}]
+
++ Attributes (Product)
++ Parameters
+  + id: 1 (number) - The unique identifier of the item
+
+### Retrieve a Product [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+  + Headers
+
+            Access-Control-Allow-Origin: *
+
+  + Body
+
+            {
+      				"product": {
+      				  "id": 2,
+      				  "name": "Classic Slip-On™",
+      				  "brand": "Vans",
+      				  "description": "The shoe that started it all... the iconic Vans™ Classic Slip-On.\r\nA slip-on deck shoe with Vans' classic Off the Wall outsole.\r\nDurable canvas uppers (unless noted in color name) for long lasting wear.\r\nPadded collar and footbed for supreme comfort, fit, and superior shock absorption.\r\nCotton drill lining for excellent breathability and extra comfort.\r\nDie-cut EVA insert for added support.\r\nVulcanized sole attachment.\r\nGum rubber outsole with Vans' signature waffle tread.",
+      				  "sport": "skateboarding",
+      				  "review": "5.0",
+      				  "image": "http://a1.zassets.com/images/z/2/7/5/0/9/5/2750955-p-MULTIVIEW.jpg",
+      				  "price": "60.0"
+      				}
+      			}
+
+# Data Structures
+## Product
+
+- `id`: `1` (number)
+- `name`: `UA Jet Mid ` (string)
+- `brand`: ` Under Armour ` (string)
+- `description`: `Perforated leather and synthetic overlays provide stability.
+Mid-top silhouette.
+Traditional lace-up closure.
+Padded mesh collar and tongue for a great feel against foot.
+Molded OrthoLite® sockliner provides extra cushion while keeping your foot locked in.
+Molded full-length EVA foam midsole.` (string)
+- `sport`: `basketball` (string)
+- `review`: `4.0` (string)
+- `image`: `http://a3.zassets.com/images/z/3/7/7/5/6/6/3775661-p-MULTIVIEW.jpg` (string)
