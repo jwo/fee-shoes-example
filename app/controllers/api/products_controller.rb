@@ -8,7 +8,7 @@ class Api::ProductsController < ApplicationController
     @products = Product.all
     @products = @products.where(sport: params[:sport]) if params[:sport].present?
     @products = @products.where(brand: params[:brand]) if params[:brand].present?
-    @products = @products.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
+    @products = @products.where("name ILIKE ?", "%#{params[:name]}%") if params[:name].present?
   end
 
   def show
